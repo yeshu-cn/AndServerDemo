@@ -1,8 +1,15 @@
+/*
+ *
+ *  * Copyright (c) 2018 yeshu. All Rights Reserved.
+ *
+ */
+
 apply plugin: 'com.android.application'
 
 apply plugin: 'kotlin-android'
 
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion 29
@@ -31,4 +38,7 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+
+    implementation 'com.yanzhenjie.andserver:api:2.1.0'
+    kapt 'com.yanzhenjie.andserver:processor:2.1.0'
 }
