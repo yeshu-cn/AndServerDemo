@@ -6,27 +6,25 @@
 
 package work.yeshu.demo.andserverdemo;
 
+import com.yanzhenjie.andserver.annotation.GetMapping;
 import com.yanzhenjie.andserver.annotation.PostMapping;
 import com.yanzhenjie.andserver.annotation.RequestMapping;
 import com.yanzhenjie.andserver.annotation.RequestParam;
 import com.yanzhenjie.andserver.annotation.RestController;
 
 @RestController
-@RequestMapping(path = "/user")
+@RequestMapping(path = "/data")
 public class UserController {
-    @PostMapping("/login")
-    public String login(@RequestParam("account") String account,
-                        @RequestParam("password") String password) {
+    private String cache = "";
 
-
-        return "Successful.";
+    @PostMapping("/upload")
+    String login(@RequestParam("data") String data) {
+        cache = data;
+        return "success";
     }
-//
-//    @GetMapping(path = "/{userId}")
-//    public User info(@PathVariable("userId") String userId,
-//                     @QueryParam("fields") String fields) {
-//
-//        return new User("guan", 66);
-//    }
 
+    @GetMapping("/get")
+    String login() {
+        return cache;
+    }
 }
